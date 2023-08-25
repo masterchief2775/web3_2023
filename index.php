@@ -44,7 +44,7 @@
     echo "Erreur ou 1ere fois";
 
   ?>
-    <form class="row g-3 needs-validation" novalidate>
+    <form class="row g-3 needs-validation" novalidate action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <div class="col-md-4">
         <label for="nom" class="form-label">Nom</label>
         <input type="text" class="form-control" id="nom" required>
@@ -113,18 +113,21 @@
       </div>
       <div class="col-12">
         <button class="btn btn-primary" type="submit">Submit form</button>
+        <span style="color:red" ;><?php echo $champsErreur; ?></span><br>
+        <span style="color:red" ;><?php echo $nomErreur; ?></span><br>
       </div>
     </form>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-      <span style="color:red" ;><?php echo $champsErreur; ?></span><br>
+<!--
+    <form  method="post">
+      
       <div>Nom</div> <input type="text" name="nom" maxlength="15"><br>
-      <span style="color:red" ;><?php echo $nomErreur; ?></span><br>
+     
 
       <div>Image</div><input type="text" name="image" value="<?php echo $image; ?>"><br>
 
       <input type="submit">
     </form>
-
+  -->
   <?php
   }
 
